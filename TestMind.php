@@ -1,7 +1,7 @@
 <?php
     echo "Chỉ là tư duy thôi, có gì nhỉ!!!. cần tư và duy trì!!!\n";
     
-    ## Bài 1:
+    # Bài 1:
     function SoSanhHaiBang()
     {
         $Mang1 = array(1,2,3);
@@ -16,12 +16,9 @@
             if($SuChenhLech>0){
                 $DiemA = $DiemA +1;
             }else{
-                    if ($SuChenhLech==0){
-                        $DiemB = $DiemB;
-                        $DiemA = $DiemA;
-                    }else{
-                        $DiemB = $DiemB+1;
-                    }
+                if ($SuChenhLech<>0){
+                    $DiemB = $DiemB+1;
+                }
             }
         }
         echo "Điểm Người A: ".$DiemA." | "."Điểm Người B: ".$DiemB;
@@ -31,47 +28,47 @@
 
      #Bài 2
     function TimCacSoCaoNhat(){
-        $MangBai2 = array(4,4,2,1);
-        for ($i=0; $i <4 ; $i++) { 
+        $MangBai2 = array(1,4,2,1);
+        $MangAutoBai2 = array_count_values($MangBai2);
+        $SoBanDau = $MangBai2[0];
+        for ($i=0; $i <count($MangBai2) ; $i++) { 
             # code...
-            $SoBanDau = $MangBai2[0];
             if($SoBanDau<$MangBai2[$i]){
                 $SoBanDau = $MangBai2[$i];
             }
         }
-        $SoCaoNhat = $SoBanDau;
-        $DiemSoCaoNhat = 1;
-        for ($i=1; $i <4 ; $i++) { 
-            # code...
-        if($SoCaoNhat == $MangBai2[$i]){
-            $DiemSoCaoNhat = $DiemSoCaoNhat +1;
-        }
-        }
-        echo "Tổng số, số cao nhất trong dãy : ".$DiemSoCaoNhat;
+        echo "Tổng số, số cao nhất trong dãy : ".$MangAutoBai2[$SoBanDau];
     }
     TimCacSoCaoNhat();
     echo "\n";
+
+    $SoVongQuay =  0;
     function TinhSoVongGapNhau(){
         #Bài 3
-        $MocA = 0;
+        $MocA = 1;
         $MocB = 4;
-        $TocDoA = 3;
-        $TocDoB = 2;
+        $TocDoA = 2;
+        $TocDoB = 3;
         $TinhTienA =$MocA +$TocDoA;
         $TinhTienB = $MocB + $TocDoB;
-        $SoVongQuay =  0;
-        while($TinhTienA - $TinhTienB)
-        {
-            $TinhTienA = $TinhTienA + $TocDoA;
-            $TinhTienB = $TinhTienB + $TocDoB;
+        global $SoVongQuay;
+        
+        do{
             $SoVongQuay = $SoVongQuay +1;
-            if(($TinhTienA - $TinhTienB)==0){
-                break;
+            $TrangThai = 1;
+            if(($TinhTienA - $TinhTienB)!=0){
+                $TinhTienA = $TinhTienA + $TocDoA;
+                $TinhTienB = $TinhTienB + $TocDoB;
+                $TrangThai = 1;
+            }else{
+                return "1";
+                $TrangThai = 0;
             }
-        }
-        return $SoVongQuay;
+            echo $TinhTienB." ";
+        }while($SoVongQuay<10);
+        
     }
-    echo "Số vòng để hai điểm gặp nhau là : ".TinhSoVongGapNhau();
+    TinhSoVongGapNhau();
    
    
     
