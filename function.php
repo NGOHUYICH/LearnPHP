@@ -1,8 +1,8 @@
 <?php
     
-    
+    $MangPhanTu = array(1,3,5,7,9);
     function TinhTong(){
-        $MangPhanTu = array(1,3,5,7,9);
+       global $MangPhanTu;
         $TongMangPT = 0;
         foreach ($MangPhanTu as $key => $value) {
             # code...
@@ -10,23 +10,23 @@
         }
         echo  $TongMangPT;
     }
-   // TinhTong();
+    // TinhTong();
+    // echo "\n";
    function MaxPhanTu(){
         $MangPhanTu = array(1,3,5,7,9);
         $PhanTu_Bd = $MangPhanTu[0];
         for ($i=0; $i <count($MangPhanTu) ; $i++) { 
-           
             # code...
             $PhanTuBD_Vong1 = $MangPhanTu[$i];
             if ($PhanTu_Bd<$PhanTuBD_Vong1){
                 $MangPhanTu[0] = $PhanTuBD_Vong1;
             }
         }
-        echo $MangPhanTu[0];
+        return $MangPhanTu[0];
     }
-    // MaxPhanTu();
+    echo "Phan tu lon nhat trong Mang:".MaxPhanTu();
     function MinPhanTu(){
-        $MangPhanTu = array(1,3,5,7,9);
+        global $MangPhanTu;
         $PhanTu_Bd = $MangPhanTu[0];
         for ($i=0; $i <count($MangPhanTu) ; $i++) { 
            
@@ -36,9 +36,9 @@
                 $MangPhanTu[0] = $PhanTuBD_Vong2;
             }
         }
-        echo $MangPhanTu[0];
+        return $MangPhanTu[0];
     }
-    // MinPhanTu()
+    echo "\nPhan tu nho nhat trong Mang:".MinPhanTu();
     
 
 ?>
